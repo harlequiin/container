@@ -43,7 +43,7 @@ class Container implements ContainerInterface
 
         $reflector = new \ReflectionClass($concrete);
         if (!$reflector->isInstantiable()) {
-            throw new \Exception("Class `{$concrete}` is not instantiable");
+            throw new ContainerException("Class `{$concrete}` is not instantiable");
         }
 
         $constructor = $reflector->getConstructor();
@@ -66,7 +66,7 @@ class Container implements ContainerInterface
                 if ($dependency->isDefaultValueAvailable()) {
                     $dependencies[] = $parameter->getDefaultValue();
                 } else {
-                    throw new \Exception("Can not resolve class dependency '{$parameter->name}'");
+                    throw new NotFoundException("Can not resolve class dependency '{$parameter->name}'");
                 }
             } else {
                 $dependencies[] = $this->get($dependency->getName());
