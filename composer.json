@@ -1,0 +1,19 @@
+{
+    "name": "maris/container",
+    "description": "Dependency container example (meant to experiment with Reflection API)",
+    "type": "project",
+    "require": {
+        "psr/container": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "Maris Udris",
+            "email": "maris.udris.lv@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "harlequiin\\Container\\": "src/"
+        }
+    }
+}
